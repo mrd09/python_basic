@@ -218,8 +218,10 @@ $ pipenv shell
 ```
 
 #### 5.4.5 After finish run the code:
-- Test to run the code:
+- Test to run the code: run a given command from the virtualenv
+```
 $ pipenv run test.py
+```
 
 #### 5.4.6. Environment Management with Pipenv:
 The three primary commands you’ll use in managing your pipenv environment are `$ pipenv install, $ pipenv uninstall, and $ pipenv lock.`
@@ -244,6 +246,9 @@ None of the above commands should be used together. They are also destructive an
 ##### 5.4.6.2. $ pipenv uninstall
 -- $ pipenv uninstall supports all of the parameters in pipenv install, as well as two additional options, --all and --all-dev.
 ```
+pipenv uninstall [OPTIONS] [PACKAGE_NAME] [MORE_PACKAGES]...
+```
+```
 --all — This parameter will purge all files from the virtual environment, but leave the Pipfile untouched.
 --all-dev — This parameter will remove all of the development packages from the virtual environment, and remove them from the Pipfile.
 ```
@@ -251,13 +256,22 @@ None of the above commands should be used together. They are also destructive an
 ##### 5.4.6.3. $ pipenv lock
 - $ pipenv lock is used to ***create a Pipfile.lock***, which declares all dependencies (and sub-dependencies) of your project, their latest available versions, and the current hashes for the downloaded files. This ensures repeatable, and most importantly deterministic, builds.
 
+#### 5.4.7. Show a dependency graph:
+- graph will show you a dependency graph of your installed dependencies.
+```
+$ pipenv graph
+requests==2.18.4
+  - certifi [required: >=2017.4.17, installed: 2017.7.27.1]
+  - chardet [required: >=3.0.2,<3.1.0, installed: 3.0.4]
+  - idna [required: >=2.5,<2.7, installed: 2.6]
+  - urllib3 [required: <1.23,>=1.21.1, installed: 1.22]
+```
 
 ## Pipfile Example: [Pipfile](https://github.com/pypa/pipfile/blob/master/examples/Pipfile)
 - Check Pipfile
 
 ```
 $ cat Pipfile
-
 ```
 ```
 Pipfile
@@ -287,7 +301,6 @@ unittest2 = {version = ">=1.0,<3.0", markers="python_version < '2.7.9' or (pytho
 - check Pipfile.lock:
 ```
 $ cat Pipfile.lock
-
 ```
 
 ```
