@@ -4,7 +4,7 @@
 - Giới thiệu Sublime Text Editor sử dụng trong khóa học này
 
 ## 1. Download và cài đặt môi trường Python in Windows
-### Tiến hành download Python 3.6.1
+### 1.1. Tiến hành download Python 3.6.1
 - Bước 1: Truy cập vào trang chủ của Python: [Python org](https://www.python.org/)
 - Bước 2: Chọn phiên bản ở mục Downloads và nhập chọn Python 3.6.1 để download
 - Bước 3: Sau download hoàn tất. Chúng ta nhấn chọn chạy file **python-3.6.1.exe** để bắt đầu tiến trình cài đặt
@@ -14,18 +14,80 @@
 	- Để mở Command Prompt bạn dùng tổ hợp phím ***Windows + R*** để mở hộp thoại Run
 - Bước 7: Trong cửa sổ Command Prompt, bạn gõ **python > Enter** để kiểm tra
 ```
+If only install the version 2.7:
+## Console:
+
 C:\Users\PC>python
 Python 2.7.14 (v2.7.14:84471935ed, Sep 16 2017, 20:19:30) [MSC v.1500 32 bit (Intel)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
->>>
+>>> 
+```
+```
+If you were install both version 2.7 and 3.6 
+  => edit system environment to push the priority of the variable to the head then switch by this command
+
+## Console:
+C:\Users\PC>py
+Python 3.6.0 (v3.6.0:41df79263a11, Dec 23 2016, 08:06:12) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+
+## Script:
+#! python3
+--------------------
+## Console:
+
+C:\Users\PC>py -2.7
+Python 2.7.14 (v2.7.14:84471935ed, Sep 16 2017, 20:19:30) [MSC v.1500 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+
+### Script: 
+#! python
 ```
 
-## 1.1 Python in unix, linux
+### 1.2 Python in unix, linux
 - hệ điều hành đó đều đã được tích hợp Python 2.x lẫn Python 3.x. Các bạn muốn thao tác với nó chỉ cần mở Terminal và gõ python2 để chọn Python 2.x hoặc python3 để chọn Python 3.x
+
+### 1.3 Switch between python version 2.X and 3.X: [URL](https://stackoverflow.com/questions/40024713/possible-to-switch-between-python-2-and-3-in-sublime-text-3-build-systems-wind)
 
 ## 2. Sublime Text Editor
 - [Installation](https://www.howkteam.vn/course/huong-dan-cai-dat/huong-dan-cai-dat-sublime-text-3-1534)
 - shortkey_sublime.txt
+
+### 2.1 Switch between python version 2.X and 3.X when build the code: [URL](https://stackoverflow.com/questions/40024713/possible-to-switch-between-python-2-and-3-in-sublime-text-3-build-systems-wind)
+
+- Go to Sublime Text to: Tools -> Build System -> New Build System -> Then save it with a meaningful name like: python3.sublime-build and python2.sublime-build
+
+- In this file write (python launcher documentation):
+  - python2.sublime-build
+
+```
+{
+  "cmd": ["C:/Python27/python.exe", "-u", "$file"],
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "selector": "source.python",
+    "env": {"PYTHONIOENCODING": "utf-8"},
+}
+```
+  - python3.sublime-build 
+```
+{
+  "cmd": ["C:/Python36/python.exe", "-u", "$file"],
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "selector": "source.python",
+    "env": {"PYTHONIOENCODING": "utf-8"},
+}
+```
+
+- For choose version of python interpretator, in the first line of your scripts write (shebang lines)
+```
+#! python or
+#! python3
+```
+OR
+- Tools > Build System > python2
+- Tools > Build System > python3
 
 ## 3. Install pip(package manager)
 - Check that if you have install python and pip:
