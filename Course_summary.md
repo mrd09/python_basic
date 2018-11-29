@@ -47,3 +47,21 @@
 
 ## PythonBasic_11_StringType_P5.py
 
+## PythonBasic_12_List_P1.py
+	1. Container. Đặt vấn đề và cách giải quyết
+	2. Giới thiệu về List trong Python + Cách khởi tạo List
+		2.1. Sử dụng List Comprehension
+		2.2. Sử dụng constructor list
+			2.2.1. Constructor là gì?
+			2.2.2. Python Non Parameterized vs Python Parameterized Constructor?
+			2.2.3. Constructor List
+	3. Một số toán tử với List trong Python
+		3.1. Toán tử +
+		3.2. Toán tử *
+		3.3. Toán tử in
+	4. Indexing và cắt List trong Python
+	5. Thay đổi nội dung List trong Python
+	6. Ma trận
+	7. Vấn đề cần lưu tâm khi sử dụng List 
+
+	
